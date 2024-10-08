@@ -5,5 +5,5 @@
     Access-Control-Allow-Headers = "Content-Type"
     Access-Control-Allow-Methods = "GET, POST, OPTIONS"
 
-[build]
+[[build]]
   functions = "functions"  # This should match the folder where your functions are stored
