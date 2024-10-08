@@ -6,5 +6,15 @@
     Access-Control-Allow-Methods = "GET, POST, OPTIONS"
 
 [build]
-	command = "# no build command"
-	functions = "netlify/functions"
+    publish = "public"
+    command = "echo No build command"
+    node_bundler = "esbuild"
+
+[dev]
+    publish = "public"
+    node_bundler = "esbuild"
+
+[[redirects]]
+    from = "/api/*"
+    to = "/.netlify/functions/:splat"
+    status = 200
