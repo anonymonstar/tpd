@@ -1,6 +1,14 @@
 [[headers]]
-  for = "/.netlify/functions/*"
+  for = "/netlify/functions/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
     Access-Control-Allow-Headers = "Content-Type"
     Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+
+[build]
+	command = "# no build command"
+	functions = "netlify/functions"
+	publish = "public"
+
+[functions]
+        node_bundler = "esbuild"
