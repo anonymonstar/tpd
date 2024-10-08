@@ -1,6 +1,6 @@
 exports.handler = async function(event, context) {
   const WEBFLOW_API_KEY = 'fe828a50fc10216bfe01f9b84d4c20ce97c6f12522a52062d1a046606696b82e';
-  const COLLECTION_ID = '6703fd91503b242fa5062b25';
+  const COLLECTION_ID = '67056c01ed98800faf1fa5db';
 
   try {
     const fetch = (await import('node-fetch')).default;
