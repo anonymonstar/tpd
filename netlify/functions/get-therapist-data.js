@@ -5,7 +5,7 @@ exports.handler = async function(event, context) {
   try {
     const fetch = (await import('node-fetch')).default;
 
-    const response = await fetch(`https://api.webflow.com/collections/${COLLECTION_ID}/items?limit=100`, {
+    const response = await fetch(`https://api.webflow.com/v2/collections/${COLLECTION_ID}/items?limit=100`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${WEBFLOW_API_KEY}`,
