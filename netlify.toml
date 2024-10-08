@@ -1,7 +1,3 @@
-
-[build]
-  functions = "functions"  # This should match the folder where your functions are stored
-
 [[headers]]
   for = "/.netlify/functions/*"
   [headers.values]
