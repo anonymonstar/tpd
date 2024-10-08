@@ -3,7 +3,6 @@ exports.handler = async function(event, context) {
   const COLLECTION_ID = '6703fd91503b242fa5062b25';
 
   try {
-    // Dynamically import node-fetch
     const fetch = (await import('node-fetch')).default;
 
     const response = await fetch(`https://api.webflow.com/collections/${COLLECTION_ID}/items?limit=100`, {
@@ -15,21 +14,26 @@ exports.handler = async function(event, context) {
     });
 
     const data = await response.json();
+    
+    // Log the response data
+    console.log('Webflow API Response:', JSON.stringify(data));
 
     return {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': '*',  // This allows any domain to access the resource
+        'Access-Control-Allow-Origin': '*',  
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Allow-Methods': 'GET, POST, OPTIONS'
       },
       body: JSON.stringify(data),
     };
   } catch (error) {
+    console.error('Error fetching data:', error);
+
     return {
       statusCode: 500,
       headers: {
-        'Access-Control-Allow-Origin': '*',  // Ensure the CORS header is present on error as well
+        'Access-Control-Allow-Origin': '*', 
       },
       body: JSON.stringify({ error: 'Error fetching data from Webflow' }),
     };
